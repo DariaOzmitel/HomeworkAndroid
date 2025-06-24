@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HomeworkAndroid</string>
+    <string name="network_result">Результат сетевого запроса</string>
 </resources>
