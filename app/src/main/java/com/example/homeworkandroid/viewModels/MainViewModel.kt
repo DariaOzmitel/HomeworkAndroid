@@ -27,6 +27,9 @@ class MainViewModel(
     private val timeLiveDataMutable = MutableLiveData<String>()
     val timeLiveData: LiveData<String>
         get() = timeLiveDataMutable
+    private val cardListLiveDataMutable = MutableLiveData<List<String>>()
+    val cardListLiveData: LiveData<List<String>>
+        get() = cardListLiveDataMutable
 
     init {
         getId()
@@ -75,11 +78,14 @@ class MainViewModel(
         getCardIdsUseCase.invoke()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ idList ->
-                Log.d("EditTextDebounce", "$idList")
-            }, { error ->
-                idLiveDataMutable.value = "Error: ${error.message}"
-            })
+            .subscribe(
+                { idList ->
+                    cardListLiveDataMutable.value = idList
+                },
+//                { error ->
+//                cardListLiveDataMutable.value = listOf("Error: ${error.message}")
+//            }
+            )
     }
 
     override fun onCleared() {

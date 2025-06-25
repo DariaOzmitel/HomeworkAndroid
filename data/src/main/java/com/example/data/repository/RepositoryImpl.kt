@@ -13,12 +13,22 @@ internal class RepositoryImpl(
 ) : Repository {
     override fun getIdFromNetwork(): Single<String> = apiService.getId().map { it.id }
     override fun getCardIds(): Single<List<String>> =
+
         Single.zip(
             serverCard1Single,
             serverCard2Single
         ) { list1, list2 ->
             list1 + list2
-        }
+        }.onErrorReturnItem(emptyList())
+    // б) Если 1 из запросов падает, то не выводить ничего
+
+//        Single.zip(
+//            serverCard1Single.onErrorReturnItem(emptyList()),
+//            serverCard2Single.onErrorReturnItem(emptyList())
+//        ) { list1, list2 ->
+//            list1 + list2
+//        }
+    // а) Если 1 из запросов падает, то все равно выводить
 
     private val serverCard1Single = apiServiceCard1.getIds().map { it.ids }
     private val serverCard2Single = apiServiceCard2.getIds().map { it.ids }

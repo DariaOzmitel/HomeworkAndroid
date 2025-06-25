@@ -1,15 +1,16 @@
 package com.example.homeworkandroid
 
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.homeworkandroid.adapters.CardListAdapter
 import com.example.homeworkandroid.databinding.ActivityMainBinding
 import com.example.homeworkandroid.viewModels.MainViewModel
+import com.example.homeworkandroid.viewModels.SharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -17,10 +18,8 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
     private val viewModel: MainViewModel by viewModel()
+    private val sharedViewModel: SharedViewModel by viewModel()
 
-    private lateinit var textViewId: TextView
-    private lateinit var textViewTimer: TextView
-    private lateinit var editText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,29 +30,46 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        textViewId = binding.textViewId
-        textViewTimer = binding.textViewTimer
-        editText = binding.editText
         observeId()
         observeTimer()
         addAfterTextChanged()
+        observeCardItems()
+        addFragment()
     }
 
     private fun observeId() {
         viewModel.idLiveData.observe(this) { id ->
-            textViewId.text = id
+            binding.textViewId.text = id
         }
     }
 
     private fun observeTimer() {
         viewModel.timeLiveData.observe(this) { time ->
-            textViewTimer.text = time
+            binding.textViewTimer.text = time
         }
     }
 
+    private fun addFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView, PositionFragment())
+            .commit()
+    }
+
     private fun addAfterTextChanged() {
-        editText.addTextChangedListener(afterTextChanged = { text ->
+        binding.editText.addTextChangedListener(afterTextChanged = { text ->
             viewModel.changeEditText(text.toString())
         })
     }
+
+    private fun observeCardItems() {
+        val recyclerView = binding.recycler
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = CardListAdapter(sharedViewModel.clickSubject)
+        recyclerView.adapter = adapter
+        viewModel.cardListLiveData.observe(this) { cardList ->
+            adapter.submitList(cardList)
+        }
+    }
+
+
 }
