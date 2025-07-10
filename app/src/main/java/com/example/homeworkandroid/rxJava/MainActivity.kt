@@ -1,4 +1,4 @@
-package com.example.homeworkandroid
+package com.example.homeworkandroid.rxJava
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,10 +7,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.homeworkandroid.R
 import com.example.homeworkandroid.adapters.CardListAdapter
 import com.example.homeworkandroid.databinding.ActivityMainBinding
-import com.example.homeworkandroid.viewModels.MainViewModel
-import com.example.homeworkandroid.viewModels.SharedViewModel
+import com.example.homeworkandroid.rxJava.viewModels.MainViewModel
+import com.example.homeworkandroid.rxJava.viewModels.SharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

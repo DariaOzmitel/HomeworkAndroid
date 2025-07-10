@@ -2,4 +2,9 @@
     <string name="app_name">HomeworkAndroid</string>
     <string name="network_result">Результат сетевого запроса</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_fragment">FirstFragment</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="second_fragment">SecondFragment</string>
+    <string name="third_fragment">ThirdFragment</string>
 </resources>

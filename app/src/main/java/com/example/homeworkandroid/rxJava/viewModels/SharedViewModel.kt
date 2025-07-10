@@ -1,4 +1,4 @@
-package com.example.homeworkandroid.viewModels
+package com.example.homeworkandroid.rxJava.viewModels
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.subjects.PublishSubject

@@ -1,4 +1,4 @@
-package com.example.homeworkandroid.viewModels
+package com.example.homeworkandroid.rxJava.viewModels
 
 import android.annotation.SuppressLint
 import android.util.Log

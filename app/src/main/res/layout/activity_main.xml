@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".rxJava.MainActivity">
 
     <TextView
         android:id="@+id/textViewTimer"
@@ -58,7 +58,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.homeworkandroid.PositionFragment"
+        android:name="com.example.homeworkandroid.rxJava.PositionFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

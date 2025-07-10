@@ -1,4 +1,4 @@
-package com.example.homeworkandroid
+package com.example.homeworkandroid.rxJava
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.homeworkandroid.databinding.FragmentPositionBinding
-import com.example.homeworkandroid.viewModels.SharedViewModel
+import com.example.homeworkandroid.rxJava.viewModels.SharedViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
