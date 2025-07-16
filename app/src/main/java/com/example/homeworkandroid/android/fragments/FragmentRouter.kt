@@ -1,4 +1,4 @@
-package com.example.homeworkandroid.android
+package com.example.homeworkandroid.android.fragments
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

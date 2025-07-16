@@ -3,6 +3,7 @@ package com.example.homeworkandroid
 import android.app.Application
 import com.example.data.di.dataModule
 import com.example.domain.di.domainModule
+import com.example.homeworkandroid.android.task2.scheduleChargingNotification
 import com.example.homeworkandroid.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,5 +18,6 @@ class HomeworkAndroidApp : Application() {
             androidContext(this@HomeworkAndroidApp)
             modules(listOf(dataModule, domainModule, appModule))
         }
+        scheduleChargingNotification(this)
     }
 }

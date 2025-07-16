@@ -7,4 +7,7 @@
     <string name="next">Next</string>
     <string name="second_fragment">SecondFragment</string>
     <string name="third_fragment">ThirdFragment</string>
+    <string name="charging">Зарядка</string>
+    <string name="charging_message">Устройство заряжается</string>
+
 </resources>

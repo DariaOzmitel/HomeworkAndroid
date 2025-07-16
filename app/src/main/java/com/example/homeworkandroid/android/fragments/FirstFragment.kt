@@ -1,15 +1,15 @@
-package com.example.homeworkandroid.android
+package com.example.homeworkandroid.android.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.homeworkandroid.databinding.FragmentThirdBinding
+import com.example.homeworkandroid.android.RouterActivity
+import com.example.homeworkandroid.databinding.FragmentFirstBinding
 
-class ThirdFragment : Fragment() {
-
-    private var _binding: FragmentThirdBinding? = null
+class FirstFragment : Fragment() {
+    private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
     private val router: FragmentRouter by lazy {
@@ -20,7 +20,7 @@ class ThirdFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,7 +28,7 @@ class ThirdFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonNext.setOnClickListener {
-            router.navigateTo(FirstFragment())
+            router.navigateTo(SecondFragment())
         }
         binding.buttonBack.setOnClickListener {
             router.goBack()
